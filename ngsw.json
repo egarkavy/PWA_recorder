@@ -1,0 +1,81 @@
+{
+  "configVersion": 1,
+  "timestamp": 1704380036814,
+  "index": "/pwa-audio/index.html",
+  "assetGroups": [
+    {
+      "name": "app",
+      "installMode": "prefetch",
+      "updateMode": "prefetch",
+      "cacheQueryOptions": {
+        "ignoreVary": true
+      },
+      "urls": [
+        "/pwa-audio/favicon.ico",
+        "/pwa-audio/index.html",
+        "/pwa-audio/main.19b27173023bb901.js",
+        "/pwa-audio/manifest.webmanifest",
+        "/pwa-audio/polyfills.c0aa0fa15ca128e8.js",
+        "/pwa-audio/runtime.50952f3dd1a19ca8.js",
+        "/pwa-audio/styles.6507e0fc35322572.css"
+      ],
+      "patterns": []
+    },
+    {
+      "name": "assets",
+      "installMode": "lazy",
+      "updateMode": "prefetch",
+      "cacheQueryOptions": {
+        "ignoreVary": true
+      },
+      "urls": [
+        "/pwa-audio/assets/icons/icon-128x128.png",
+        "/pwa-audio/assets/icons/icon-144x144.png",
+        "/pwa-audio/assets/icons/icon-152x152.png",
+        "/pwa-audio/assets/icons/icon-192x192.png",
+        "/pwa-audio/assets/icons/icon-384x384.png",
+        "/pwa-audio/assets/icons/icon-512x512.png",
+        "/pwa-audio/assets/icons/icon-72x72.png",
+        "/pwa-audio/assets/icons/icon-96x96.png"
+      ],
+      "patterns": []
+    }
+  ],
+  "dataGroups": [],
+  "hashTable": {
+    "/pwa-audio/assets/icons/icon-128x128.png": "b1f06c7d714abb4a0cc4d1f7c954feb26826e4c4",
+    "/pwa-audio/assets/icons/icon-144x144.png": "96a0d629765c1bc85d9263c6bc83094ca776d267",
+    "/pwa-audio/assets/icons/icon-152x152.png": "b1fbbee3902eb96a7658e3bb006f31f78ca5a44c",
+    "/pwa-audio/assets/icons/icon-192x192.png": "e4211163bf0911688fbfb80278d8ff4d2f77691d",
+    "/pwa-audio/assets/icons/icon-384x384.png": "329749cd6393768d3131ed6304c136b1ca05f2fd",
+    "/pwa-audio/assets/icons/icon-512x512.png": "559d9c4318b45a1f2b10596bbb4c960fe521dbcc",
+    "/pwa-audio/assets/icons/icon-72x72.png": "279825a1ac4377032ae996a1832c641e33ccf1b6",
+    "/pwa-audio/assets/icons/icon-96x96.png": "592885efcbfee27e5e20be4fa3043589390d2740",
+    "/pwa-audio/favicon.ico": "22f6a4a3bcaafafb0254e0f2fa4ceb89e505e8b2",
+    "/pwa-audio/index.html": "02cb04190481a1d89038c38addb5cdfe55ae5122",
+    "/pwa-audio/main.19b27173023bb901.js": "097dce13d635008d365f3bc1a52a02ea75f35b1f",
+    "/pwa-audio/manifest.webmanifest": "0de07a25d53ca1bbdd03bf3698403503595bcfa7",
+    "/pwa-audio/polyfills.c0aa0fa15ca128e8.js": "82657bc28d4f4a51d891f8e1b059e94aeb57281b",
+    "/pwa-audio/runtime.50952f3dd1a19ca8.js": "c270b677bd99db1863af0661e2a9a64a4ee7c1eb",
+    "/pwa-audio/styles.6507e0fc35322572.css": "1c428c356d3ad7dd744d877cb29ee6f7ce441188"
+  },
+  "navigationUrls": [
+    {
+      "positive": true,
+      "regex": "^\\/.*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*\\.[^/]*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*__[^/]*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*__[^/]*\\/.*$"
+    }
+  ],
+  "navigationRequestStrategy": "performance"
+}
