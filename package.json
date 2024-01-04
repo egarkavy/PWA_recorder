@@ -7,7 +7,8 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "http": " npx http-server -p 8080  dist/pwa-audio",
-    "test": "ng test"
+    "test": "ng test",
+    "build:pages": "ng build --base-href /pwa-audio --output-path dist-pages"
   },
   "private": true,
   "dependencies": {
