@@ -1,0 +1,51 @@
+@use 'variables' as vars;
+
+@mixin icon-button-size($button-size, $icon-size: 24px, $padding: 12px) {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: #{$padding};
+  --mdc-icon-button-state-layer-size: #{$button-size};
+  --mdc-icon-button-icon-size: #{$icon-size};
+}
+
+//due to an active issue https://github.com/angular/components/issues/26056
+//We specify these variables which are responsible for the font color of buttons
+//TODO: remove when the issue is fixed and the color is taken from the theme
+
+.mat-mdc-unelevated-button.mat-primary {
+  --mdc-filled-button-label-text-color: #{vars.$primary-color-contrast};
+}
+
+.mat-mdc-raised-button.mat-primary {
+  --mdc-protected-button-label-text-color: #{vars.$primary-color-contrast};
+}
+
+.mat-mdc-unelevated-button.mat-accent {
+  --mdc-filled-button-label-text-color: #{vars.$accent-color-contrast};
+}
+
+.mat-mdc-raised-button.mat-accent {
+  --mdc-protected-button-label-text-color: #{vars.$accent-color-contrast};
+}
+
+.mat-mdc-mini-fab.mat-primary {
+  --mat-mdc-fab-color: #{vars.$accent-color-contrast};
+}
+
+button {
+  &[mat-icon-button],
+  &[mat-mini-fab] {
+    &.xs-icon-button {
+      @include icon-button-size(32px, 14px, 6px);
+    }
+
+    &.sm-icon-button {
+      @include icon-button-size(40px, 18px);
+    }
+
+    &.md-icon-button {
+      @include icon-button-size(56px, 32px);
+    }
+  }
+}

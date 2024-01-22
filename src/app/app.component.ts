@@ -2,6 +2,7 @@ import { Component, OnInit, inject } from '@angular/core';
 import { ServiceWorkerMiddlewareService } from './service-worker-middleware.service';
 import { MatButtonModule } from '@angular/material/button';
 import { AudioRecordingService } from './audio-recording.service';
+import { filter, first } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -32,14 +33,19 @@ export class AppComponent implements OnInit {
   }
 
   public stopRecording(): void {
-    this.audioRecordingService.stopRecording();
+    const file$ = this.audioRecordingService.getAudioFile();
 
-    const file = this.audioRecordingService.getAudioFile();
-
-    if (file) {
+    file$.pipe(
+      filter((file) => file !== null),
+      first()
+    ).subscribe((file) => {
+      console.log(file);
+      
       const audio = new Audio(URL.createObjectURL(file));
       audio.play();
-    }
+    })
+
+    this.audioRecordingService.stopRecording();
   }
 
   public pauseRecording(): void {

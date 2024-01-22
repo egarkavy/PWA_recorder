@@ -1,5 +1,5 @@
 import { Injectable, signal } from "@angular/core";
-import { fromEvent } from "rxjs";
+import { Subject, fromEvent } from "rxjs";
 
 @Injectable(
     {
@@ -14,7 +14,7 @@ export class AudioRecordingService {
 
     private audioChunks: BlobPart[] = [];
 
-    private audioFile: Blob | null = null;
+    private audioFile$: Subject<Blob> = new Subject<Blob>();
 
     public async beginRecording(): Promise<void> {
         await this.ensureStreamExists();
@@ -50,11 +50,11 @@ export class AudioRecordingService {
         }
 
         this.mediaRecorder?.stop();
-        this.stream?.getTracks().forEach(track => this.stream?.removeTrack(track));
+        this.stream?.getTracks().forEach(track => track.stop());
     }
 
-    public getAudioFile(): Blob | null { 
-        return this.audioFile;
+    public getAudioFile(): Subject<Blob> { 
+        return this.audioFile$;
     }
 
     private async ensureStreamExists(): Promise<void> {
@@ -66,10 +66,11 @@ export class AudioRecordingService {
             return;
         }
 
+        // this.stream.getTracks().forEach(track => );
+
         this.mediaRecorder = new MediaRecorder(this.stream);
     
         this.audioChunks = [];
-        this.audioFile = null;
     
         this.mediaRecorder.addEventListener("dataavailable", event => {
           this.audioChunks.push(event.data);
@@ -84,7 +85,7 @@ export class AudioRecordingService {
         });
 
         this.mediaRecorder.addEventListener("stop", () => {
-            this.audioFile = new Blob(this.audioChunks);
+            this.audioFile$.next(new Blob(this.audioChunks));
 
             this.recordingState.set("inactive");
         });
