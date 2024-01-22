@@ -1,0 +1,100 @@
+@use '@angular/material' as mat;
+@use 'variables' as vars;
+@use 'libs/common/components/src/lib/simple-snack-bar/_simple-snack-bar-theme.scss' as pyp-simple-snack-bar;
+
+@include mat.core();
+
+$primary-palette: (
+  50: #fffbff,
+  100: #f3eeff,
+  200: #e5deff,
+  300: #c7bfff,
+  400: #ab9fff,
+  500: #8e7fff,
+  600: #745ff3,
+  700: #5a43d9,
+  800: #4224c1,
+  900: #2b009e,
+  contrast: (
+    50: vars.$primary-color-lighter-contrast,
+    100: vars.$primary-color-lighter-contrast,
+    200: vars.$primary-color-lighter-contrast,
+    300: vars.$primary-color-lighter-contrast,
+    400: vars.$primary-color-lighter-contrast,
+    500: vars.$primary-color-contrast,
+    600: vars.$primary-color-contrast,
+    700: vars.$primary-color-darker-contrast,
+    800: vars.$primary-color-darker-contrast,
+    900: vars.$primary-color-darker-contrast
+  )
+);
+
+$accent-palette: (
+  50: vars.$accent-color-lighter,
+  100: vars.$accent-color-lighter,
+  200: vars.$accent-color-lighter,
+  300: vars.$accent-color-lighter,
+  400: vars.$accent-color-lighter,
+  500: vars.$accent-color,
+  600: vars.$accent-color,
+  700: vars.$accent-color-darker,
+  800: vars.$accent-color-darker,
+  900: vars.$accent-color-darker,
+  contrast: (
+    50: vars.$accent-color-lighter-contrast,
+    100: vars.$accent-color-lighter-contrast,
+    200: vars.$accent-color-lighter-contrast,
+    300: vars.$accent-color-lighter-contrast,
+    400: vars.$accent-color-lighter-contrast,
+    500: vars.$accent-color-contrast,
+    600: vars.$accent-color-contrast,
+    700: vars.$accent-color-darker-contrast,
+    800: vars.$accent-color-darker-contrast,
+    900: vars.$accent-color-darker-contrast
+  )
+);
+
+$primary: mat.define-palette($primary-palette, 700);
+$accent: mat.define-palette($accent-palette);
+
+$pyp-theme: mat.define-light-theme(
+  (
+    color: (
+      primary: $primary,
+      accent: $accent
+    ),
+    typography: mat.define-typography-config(),
+    //  density: 0,
+  )
+);
+
+$simple-snack-bar-theme: (
+  info: (
+    supporting-text-color: vars.$snack-bar-info-supporting-text-color,
+    container-color: vars.$snack-bar-info-container-color
+  ),
+  error: (
+    supporting-text-color: vars.$snack-bar-error-supporting-text-color,
+    container-color: vars.$snack-bar-error-container-color
+  ),
+  warning: (
+    supporting-text-color: vars.$snack-bar-warning-supporting-text-color,
+    container-color: vars.$snack-bar-warning-container-color
+  ),
+  success: (
+    supporting-text-color: vars.$snack-bar-success-supporting-text-color,
+    container-color: vars.$snack-bar-success-container-color
+  )
+);
+
+@include mat.all-component-themes($pyp-theme);
+@include pyp-simple-snack-bar.theme($simple-snack-bar-theme);
+
+:root {
+  /* drawer */
+  --mat-sidenav-container-text-color: vars.$accent-color;
+  --mat-sidenav-content-text-color: vars.$accent-color;
+
+  /* checkbox */
+  --mdc-theme-text-primary-on-background: vars.$accent-color;
+}

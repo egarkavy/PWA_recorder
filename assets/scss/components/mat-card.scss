@@ -1,0 +1,7 @@
+@use '@angular/material' as mat;
+
+mat-card {
+  &.mat-elevation-z0 {
+    @include mat.elevation(0);
+  }
+}

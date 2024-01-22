@@ -1,0 +1,13 @@
+.flex-all-available-space {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+body {
+  &.prevent-scroll {
+    .flex-all-available-space:not(.allow-scroll) {
+      overflow: hidden;
+    }
+  }
+}
