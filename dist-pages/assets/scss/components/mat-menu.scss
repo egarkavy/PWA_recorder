@@ -1,5 +1,5 @@
 @use 'variables' as vars;
 
 .mat-mdc-menu-panel {
-    --mat-menu-container-color: #{vars.$theme-color};
+  --mat-menu-container-color: #{vars.$theme-color};
 }

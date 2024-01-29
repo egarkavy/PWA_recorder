@@ -6,7 +6,8 @@
 
 body {
   &.prevent-scroll {
-    &.flex-all-available-space, .flex-all-available-space:not(.allow-scroll) {
+    &.flex-all-available-space,
+    .flex-all-available-space:not(.allow-scroll) {
       overflow: hidden;
     }
   }
