@@ -90,6 +90,11 @@ $simple-snack-bar-theme: (
 @include mat.all-component-themes($pyp-theme);
 @include pyp-simple-snack-bar.theme($simple-snack-bar-theme);
 
+.dense {
+  @include mat.form-field-density(-3);
+  @include mat.button-density(-3);
+}
+
 :root {
   /* drawer */
   --mat-sidenav-container-text-color: vars.$accent-color;

@@ -1,0 +1,28 @@
+.mdc-notched-outline__notch {
+  border-right: none;
+}
+
+mat-form-field {
+  &.no-sub {
+    .mat-mdc-form-field-subscript-wrapper {
+      display: none;
+    }
+  }
+
+  .mat-mdc-text-field-wrapper,
+  [class^='mdc-notched-outline'] {
+    transition-property: padding, border-color;
+    transition-duration: 0.2s;
+    transition-timing-function: ease-in-out;
+  }
+
+  &.as-text {
+    .mat-mdc-text-field-wrapper {
+      padding: 0;
+    }
+
+    [class^='mdc-notched-outline'] {
+      border-color: transparent !important;
+    }
+  }
+}
